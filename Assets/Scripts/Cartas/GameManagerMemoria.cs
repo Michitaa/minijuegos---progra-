@@ -7,6 +7,12 @@ public class GameManagerMemoria : MonoBehaviour
     private CartaInteractiva primeraCarta;
     private CartaInteractiva segundaCarta;
     private bool esperando = false;
+    PuntajeCartas puntajeCartas;
+
+    void Start()
+    {
+        puntajeCartas = FindAnyObjectByType<PuntajeCartas>();
+    }
 
     void Awake()
     {
@@ -36,7 +42,7 @@ public class GameManagerMemoria : MonoBehaviour
 
         if (primeraCarta.tipoCarta == segundaCarta.tipoCarta)
         {
- 
+            puntajeCartas.SumandoPuntos();
         }
         else
         {  
