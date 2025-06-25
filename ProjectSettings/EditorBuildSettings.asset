@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 8c4ba2283db04f6459f26663e5bb2706
+  - enabled: 1
+    path: Assets/Scenes/Avatar.unity
+    guid: 705f7edeef62ced4ab25458b4ca0c992
+  - enabled: 1
     path: Assets/Scenes/Nicoll.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/IniciarSesion.unity
+    guid: 2995fb66d8a7efd4cbefa6521bad8ff5
   - enabled: 1
     path: Assets/Scenes/Alex.unity
     guid: 6a61c336c73a44146b0de8f8353ae044
@@ -17,9 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: fdd3d26eceaf25c4598626023f962b53
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 8c4ba2283db04f6459f26663e5bb2706
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

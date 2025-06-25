@@ -20,7 +20,7 @@ public class ControlBotones : MonoBehaviour
 
     public void SeleccionarAvatar()
     {
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("Avatar");
     }
 
     public void IniciarSesion()
@@ -28,6 +28,15 @@ public class ControlBotones : MonoBehaviour
         SceneManager.LoadScene("Cuenta");
     }
 
+    public void Lobby()
+    {
+        SceneManager.LoadScene("Lobby");
+    }
+
+    public void Cartas()
+    {
+        SceneManager.LoadScene("Nicoll");
+    }
     public void Salir()
     {
         Application.Quit();
