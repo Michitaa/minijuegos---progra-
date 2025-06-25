@@ -16,8 +16,8 @@ public class Movimiento : MonoBehaviour
 
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
         Vector3 direccion = transform.right * x + transform.forward * z;
         Vector3 nuevaVelocidad = new Vector3(direccion.x * velocidad, rb.linearVelocity.y, direccion.z * velocidad);
         rb.linearVelocity = nuevaVelocidad; // unity me pone esto porq dice q rb.velocity esta obsoleto
