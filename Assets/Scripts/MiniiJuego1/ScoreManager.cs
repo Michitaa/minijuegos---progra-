@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
 
     public int puntaje = 0;
-    public int vidas = 3;
+    public int vidas = 1;
     public TMP_Text textoPuntaje;
     public TMP_Text textoVidas;
     public float tiempoEntrePuntos = 1f;
@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
 
     void SumarPuntosAutomaticos()
     {
-        SumarPuntos(1); // Puedes subir este valor para ajustar dificultad
+        SumarPuntos(1); 
     }
 
     public void SumarPuntos(int cantidad)
@@ -42,8 +42,9 @@ public class ScoreManager : MonoBehaviour
 
         if (vidas <= 0)
         {
-            PlayerPrefs.SetInt("puntaje_minijuego", puntaje); 
-            SceneManager.LoadScene("DerrotaMinijuego"); 
+            PlayerPrefs.SetInt("ultimo_puntaje", puntaje);
+            PlayerPrefs.Save(); 
+            SceneManager.LoadScene("Derrota");
         }
     }
 
