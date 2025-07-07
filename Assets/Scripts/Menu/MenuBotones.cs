@@ -7,7 +7,7 @@ public class MenuBotones : MonoBehaviour
         SceneManager.LoadScene("Obstaculos");
     }
 
-     public void IrARunner()
+    public void IrARunner()
     {
         SceneManager.LoadScene("Salto");
     }
@@ -21,9 +21,19 @@ public class MenuBotones : MonoBehaviour
     {
         SceneManager.LoadScene("Ranking");
     }
-    
-     public void IrAMenu()
+
+    public void IrAMenu()
     {
         SceneManager.LoadScene("MenuPrincipal");
+    }
+
+    public void IrALogin()
+    {
+        SceneManager.LoadScene("Login y Register");
+    }
+    
+    public void IrAChangeUser()
+    {
+        SceneManager.LoadScene("CambiarUser");
     }
 }

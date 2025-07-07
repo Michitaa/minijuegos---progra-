@@ -44,6 +44,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Trabajo Final/Saltos.unity
     guid: dcf130e097096064888ff4bc01c1af1c
+  - enabled: 1
+    path: Assets/Scenes/Trabajo Final/Login y Register.unity
+    guid: c2c05f710fc349c4bb768258e6ec1cf0
+  - enabled: 1
+    path: Assets/Scenes/Trabajo Final/CambiarUser.unity
+    guid: 8c0aa2772c7409d4cb1e1fe0b00af620
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
