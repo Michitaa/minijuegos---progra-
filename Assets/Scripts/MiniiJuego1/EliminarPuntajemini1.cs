@@ -12,8 +12,8 @@ public class EliminarPuntajemini1 : MonoBehaviour
     IEnumerator EliminarPuntaje()
     {
         WWWForm form = new WWWForm();
-        form.AddField("usuario_id", PlayerPrefs.GetInt("usuario_id")); // Ya deberías tenerlo guardado
-        form.AddField("minijuegos_id", 1); // Aquí pones el ID del minijuego que deseas eliminar
+        form.AddField("usuario_id", PlayerPrefs.GetInt("usuario_id")); 
+        form.AddField("minijuegos_id", 1); 
 
         using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/juego/eliminar_puntaje.php", form))
         {
