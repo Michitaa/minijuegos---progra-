@@ -38,6 +38,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Trabajo Final/Obstaculos.unity
     guid: 28cabe5b8a553084a8157fc0856661b2
+  - enabled: 1
+    path: Assets/Scenes/Trabajo Final/Ranking.unity
+    guid: 130f1c3907505fe4b97031d8cf6742c6
+  - enabled: 1
+    path: Assets/Scenes/Trabajo Final/Saltos.unity
+    guid: dcf130e097096064888ff4bc01c1af1c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -7,13 +7,23 @@ public class MenuBotones : MonoBehaviour
         SceneManager.LoadScene("Obstaculos");
     }
 
+     public void IrARunner()
+    {
+        SceneManager.LoadScene("Salto");
+    }
+
     public void Salir()
     {
         Application.Quit();
     }
 
-     public void IrARanking()
+    public void IrARanking()
     {
         SceneManager.LoadScene("Ranking");
+    }
+    
+     public void IrAMenu()
+    {
+        SceneManager.LoadScene("MenuPrincipal");
     }
 }
