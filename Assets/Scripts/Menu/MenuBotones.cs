@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuBotones : MonoBehaviour
 {
-    public void IrAMemoria()
+    public void IrAObstaculos()
     {
-        SceneManager.LoadScene("MinijuegoMemoria");
+        SceneManager.LoadScene("Obstaculos");
     }
 
     public void Salir()
