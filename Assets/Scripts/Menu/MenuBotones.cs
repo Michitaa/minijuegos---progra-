@@ -31,9 +31,14 @@ public class MenuBotones : MonoBehaviour
     {
         SceneManager.LoadScene("Login y Register");
     }
-    
+
     public void IrAChangeUser()
     {
         SceneManager.LoadScene("CambiarUser");
+    }
+    
+     public void IrAEliminarUser()
+    {
+        SceneManager.LoadScene("EliminarUser");
     }
 }
