@@ -1,37 +1,29 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
-
-public class ScoreManager : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class ScoreManagerRunner : MonoBehaviour
 {
-    public static ScoreManager instance;
+   public static ScoreManagerRunner instance;
 
     public int puntaje = 0;
     public int vidas = 1;
     public TMP_Text textoPuntaje;
     public TMP_Text textoVidas;
-    public float tiempoEntrePuntos = 1f;
 
-    private void Awake()
+    void Awake()
     {
         if (instance == null) instance = this;
-        else Destroy(gameObject);
     }
 
     void Start()
     {
+        InvokeRepeating("AumentarPuntaje", 1f, 1f);
         ActualizarUI();
-        InvokeRepeating("SumarPuntosAutomaticos", tiempoEntrePuntos, tiempoEntrePuntos);
     }
 
-    void SumarPuntosAutomaticos()
+    void AumentarPuntaje()
     {
-        SumarPuntos(1); 
-    }
-
-    public void SumarPuntos(int cantidad)
-    {
-        puntaje += cantidad;
+        puntaje++;
         ActualizarUI();
     }
 
@@ -39,11 +31,10 @@ public class ScoreManager : MonoBehaviour
     {
         vidas--;
         ActualizarUI();
-
         if (vidas <= 0)
         {
-           PlayerPrefs.SetInt("puntaje_minijuego", puntaje);
-            PlayerPrefs.SetInt("minijuego_actual", 1); 
+            PlayerPrefs.SetInt("puntaje_minijuego", puntaje);
+            PlayerPrefs.SetInt("minijuego_actual", 2); 
             PlayerPrefs.Save();
             SceneManager.LoadScene("Derrota");
         }

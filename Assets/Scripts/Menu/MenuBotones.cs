@@ -11,4 +11,9 @@ public class MenuBotones : MonoBehaviour
     {
         Application.Quit();
     }
+
+     public void IrARanking()
+    {
+        SceneManager.LoadScene("Ranking");
+    }
 }

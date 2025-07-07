@@ -12,11 +12,21 @@ public class DerrotaMinijuegoUI : MonoBehaviour
 
     void Start()
     {
-        int puntaje = PlayerPrefs.GetInt("ultimo_puntaje", 0);
+        // Obtenemos datos guardados por el minijuego
+        int puntaje = PlayerPrefs.GetInt("puntaje_minijuego", 0);
+        int usuarioId = PlayerPrefs.GetInt("usuario_id", 0);
+        int minijuegoId = PlayerPrefs.GetInt("minijuego_actual", 0);
+
         textoPuntaje.text = "Tu puntaje: " + puntaje;
 
-        // Enviar el puntaje al servidor
-        StartCoroutine(EnviarPuntaje(puntaje));
+        if (usuarioId > 0 && minijuegoId > 0)
+        {
+            StartCoroutine(EnviarPuntaje(usuarioId, minijuegoId, puntaje));
+        }
+        else
+        {
+            Debug.LogWarning("Faltan datos de usuario o minijuego.");
+        }
 
         // Asignar evento al botón
         botonVolver.onClick.AddListener(() =>
@@ -25,12 +35,12 @@ public class DerrotaMinijuegoUI : MonoBehaviour
         });
     }
 
-    IEnumerator EnviarPuntaje(int puntaje)
+    IEnumerator EnviarPuntaje(int usuarioId, int minijuegoId, int puntos)
     {
         WWWForm form = new WWWForm();
-        form.AddField("usuario_id", PlayerPrefs.GetInt("usuario_id"));
-        form.AddField("minijuegos_id", 1); // ID del minijuego
-        form.AddField("puntos", puntaje);
+        form.AddField("usuario_id", usuarioId);
+        form.AddField("minijuegos_id", minijuegoId);
+        form.AddField("puntos", puntos);
 
         using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/juego/gestionar_score.php", form))
         {
