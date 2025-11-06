@@ -12,9 +12,8 @@ public class Barrel : MovableEntity, IDamageable
 
     protected override void Move()
     {
-        // Simple 3D rolling motion
         rb.angularVelocity = Vector3.forward * MovementSpeed;
-        rb.linearVelocity = Vector3.right * -MovementSpeed; // Move to the left
+        rb.linearVelocity = Vector3.right * -MovementSpeed;
     }
 
     private void FixedUpdate()
@@ -22,29 +21,21 @@ public class Barrel : MovableEntity, IDamageable
         Move();
     }
 
-    // This is the 3D collision check
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if the collided object is the Player
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
 
         if (player != null)
         {
-            // If it hits the player, invoke the damage logic on the player
+   
             player.TakeDamage();
-
-            // Destroy the barrel after the hit
             Destroy(gameObject);
         }
     }
 
     public void TakeDamage()
     {
-        // Logic for when the barrel is hit by the hammer
-        // We could implement an event here later, but for simplicity, just destroy it.
         Destroy(gameObject);
-
-        // Reward the player
         GameManager.Instance.IncreaseScore(100);
     }
 }

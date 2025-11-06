@@ -1,12 +1,13 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class PlayerController : MovableEntity, IDamageable
 {
     private bool canJump = true;
-
+    private bool hasHammer = false;
     public Action OnJumped;
-
+    public Action<bool> OnHammerStateChanged;
     protected override void Move()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -45,4 +46,39 @@ public class PlayerController : MovableEntity, IDamageable
     {
         transform.position = Vector3.zero;
     }
+    public void ActivateHammer(float duration)
+    {
+        hasHammer = true;
+        OnHammerStateChanged?.Invoke(true);
+        // CÓDIGO CORREGIDO:
+        StartCoroutine(DeactivateHammerRoutine(duration));
+    }
+
+    private void DeactivateHammer()
+    {
+        hasHammer = false;
+        OnHammerStateChanged?.Invoke(false);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (hasHammer)
+        {
+            IDamageable damageableObject = collision.gameObject.GetComponent<IDamageable>();
+
+            if (damageableObject != null)
+            {
+                damageableObject.TakeDamage();
+            }
+        }
+    }
+    private IEnumerator DeactivateHammerRoutine(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Action deactivateAction = () => { DeactivateHammer(); };
+        deactivateAction.Invoke();
+    }
+
+
+
+
 }
